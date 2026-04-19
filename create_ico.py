@@ -26,7 +26,7 @@ def create_ico():
 			self.ui.lineEdit_filePath.setText(file_path[0])
 			file = file_path[0][file_path[0].rfind('/')+1:file_path[0].rfind('.')] + ".ico"
 			self.ui.lineEdit_fileName.setText(file)
-			self.ui.label_result.setText(f'Selected File: {file}')
+			self.ui.label_result.setText(f'Selected File: {file_path[0][file_path[0].rfind('/')+1:]}')
 
 
 		def convert_file(self):
