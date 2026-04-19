@@ -35,6 +35,11 @@ def create_ico():
 			ico_file_name = self.ui.lineEdit_fileName.text()
 
 			try:
+				if not file:
+					raise ValueError("No File Selected")
+				elif not ico_file_name:
+					raise ValueError("No file name given")
+
 				# Load your image (PNG, JPG, etc.)
 				img = Image.open(file)
 
@@ -45,9 +50,10 @@ def create_ico():
 				self.ui.label_result.setText(f'File saved as {self.ui.lineEdit_fileName.text()}')
 
 				QMessageBox.information(self, "File Saved", f"File saved as {ico_file_name}")
-			except UnidentifiedImageError as e:
+			except ValueError as e:
+				QMessageBox.critical(self, "Error", f"{e}")			
+			except UnidentifiedImageError:
 				QMessageBox.critical(self, "Error", f"Cannot identify image file: {file}")
-				#self.new_file()
 			except FileNotFoundError:
 				QMessageBox.warning(self, "Error", "The specified file was not found.")
 			except Exception as e:
