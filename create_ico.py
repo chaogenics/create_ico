@@ -1,4 +1,5 @@
 from PyQt6.QtWidgets import QApplication, QWidget, QFileDialog, QStyleFactory, QMessageBox
+from PyQt6.QtGui import QIcon
 from PIL import Image, UnidentifiedImageError
 from icon_screen import Ui_Form
 import sys
@@ -15,6 +16,8 @@ def create_ico():
 			super().__init__()
 			self.ui = Ui_Form()
 			self.ui.setupUi(self)
+
+			self.setWindowIcon(QIcon('images/newlogo.ico'))
 
 			self.ui.pushButton_selectFile.clicked.connect(self.get_file)
 			self.ui.pushButton_convertFile.clicked.connect(self.convert_file)
