@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Create Icon File</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>newlogo.ico</normaloff>newlogo.ico</iconset>
+  </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QLabel" name="label">
